@@ -13,7 +13,7 @@ public class StateManager : MonoBehaviour
 
     public int NumberOfPlayers = 2;
     public int CurrentPlayerId = 0;
-
+    
     public int DiceTotal;
 
     // NOTE: enum / statemachine is probably a stronger choice, but I'm aiming for simpler to explain.

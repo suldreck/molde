@@ -18,7 +18,7 @@ public class PlayerStone : MonoBehaviour
     public StoneStorage MyStoneStorage;
 
     bool scoreMe = false;
-
+    public int penalizacion = -1;//si entra en la casilla adquiere una penalizacion,turnos sin jugar
     StateManager theStateManager;
 
     Tile[] moveQueue;
@@ -130,9 +130,17 @@ public class PlayerStone : MonoBehaviour
             theStateManager.IsDoneAnimating = true;
 
             // Are we on a roll again space?
-            if(currentTile != null && currentTile.IsRollAgain)
+            if (currentTile != null)
             {
-                theStateManager.RollAgain();
+                if ( currentTile.IsRollAgain)
+                {
+                    theStateManager.RollAgain();
+                }
+                if(currentTile.isCarcel)
+                {//ToDo pregunta
+                    int espera = 3;
+                    Debug.Log("estas en la carcel ");
+                }
             }
         }
 
@@ -182,7 +190,7 @@ public class PlayerStone : MonoBehaviour
         }
 
         int spacesToMove = theStateManager.DiceTotal;
-        
+        spacesToMove = 6;
         if (spacesToMove == 0)
         {
             return;
