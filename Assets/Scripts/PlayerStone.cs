@@ -17,7 +17,7 @@ public class PlayerStone : MonoBehaviour
     public StoneStorage MyStoneStorage;
 
     bool scoreMe = false;
-    public int penalizacion = -1;//si entra en la casilla adquiere una penalizacion,turnos sin jugar
+    public int penal = 0;//si entra en la casilla adquiere una penalizacion,turnos sin jugar
     StateManager theStateManager;
 
     Tile[] moveQueue;
@@ -105,7 +105,8 @@ public class PlayerStone : MonoBehaviour
 
     void AdvanceMoveQueue()
     {
-        if (moveQueue != null && moveQueueIndex < moveQueue.Length)
+        Debug.Log("penalizacion" +penal);
+        if (moveQueue != null && moveQueueIndex < moveQueue.Length  && penal==0)
         {
             Tile nextTile = moveQueue[moveQueueIndex];
             if (nextTile == null)
@@ -135,30 +136,30 @@ public class PlayerStone : MonoBehaviour
                 {
                     theStateManager.RollAgain();
                 }
-                if (penalizacion == -1)
+                if (penal== 0)
                 {
                     if (currentTile.isCarcel)
                     {//ToDo pregunta
-                        penalizacion = 3;
+                       penal= 3;
                         Debug.Log("estas en la carcel ");
                     }
                     if (currentTile.isPosada)
                     {//ToDo pregunta
-                        penalizacion = 2;
+                       penal= 2;
                         Debug.Log("estas en la carcel ");
                     }
                     if (currentTile.isPozo)
                     {//ToDo pregunta
-                        penalizacion = 2;
+                        penal= 2;
                         Debug.Log("estas en la carcel ");
                     }
                 }
                 else
                 {// <1
-                    if(penalizacion>0)
+                    if(penal>0)
                     {
                         //Todo pregunta, si la pregunta se acierta penalizacion =-1
-                        penalizacion--;
+                        penal--;
                         theStateManager.NewTurn();
                     }
 

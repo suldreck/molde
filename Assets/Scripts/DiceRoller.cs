@@ -9,7 +9,7 @@ public class DiceRoller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        DiceValues = new int[4];
+        DiceValues = new int[1];
         theStateManager = GameObject.FindObjectOfType<StateManager>();
     }
 
@@ -47,8 +47,7 @@ public class DiceRoller : MonoBehaviour
         theStateManager.DiceTotal = 0;
         for (int i = 0; i < DiceValues.Length; i++)
         {
-            DiceValues[i] = Random.Range(0, 2);
-            theStateManager.DiceTotal += DiceValues[i];
+            theStateManager.DiceTotal +=Random.Range(1, 6);
 
             // Update the visuals to show the dice roll
             // TODO: This could include playing an animation -- either 2D or 3D
