@@ -13,7 +13,6 @@ public class PlayerStone : MonoBehaviour
 
     public Tile StartingTile;
     Tile currentTile;
-
     public int PlayerId;
     public StoneStorage MyStoneStorage;
 
@@ -136,10 +135,33 @@ public class PlayerStone : MonoBehaviour
                 {
                     theStateManager.RollAgain();
                 }
-                if(currentTile.isCarcel)
-                {//ToDo pregunta
-                    int espera = 3;
-                    Debug.Log("estas en la carcel ");
+                if (penalizacion == -1)
+                {
+                    if (currentTile.isCarcel)
+                    {//ToDo pregunta
+                        penalizacion = 3;
+                        Debug.Log("estas en la carcel ");
+                    }
+                    if (currentTile.isPosada)
+                    {//ToDo pregunta
+                        penalizacion = 2;
+                        Debug.Log("estas en la carcel ");
+                    }
+                    if (currentTile.isPozo)
+                    {//ToDo pregunta
+                        penalizacion = 2;
+                        Debug.Log("estas en la carcel ");
+                    }
+                }
+                else
+                {// <1
+                    if(penalizacion>0)
+                    {
+                        //Todo pregunta, si la pregunta se acierta penalizacion =-1
+                        penalizacion--;
+                        theStateManager.NewTurn();
+                    }
+
                 }
             }
         }
