@@ -18,7 +18,8 @@ public class Tile : MonoBehaviour
     public bool isPosada;
     public bool isPozo;
     public bool IsRollAgain;
-	
+    public bool isOca ;
+    public Tile ocaAoca;
     // Update is called once per frame
     void Update()
     {

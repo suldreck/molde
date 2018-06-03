@@ -12,11 +12,10 @@ public class PlayerStone : MonoBehaviour
     }
 
     public Tile StartingTile;
-    Tile currentTile;
+    public Tile currentTile;
     public int PlayerId;
     public StoneStorage MyStoneStorage;
 
-    bool scoreMe = false;
     public int penal = 0;//si entra en la casilla adquiere una penalizacion,turnos sin jugar
     StateManager theStateManager;
 
@@ -64,14 +63,7 @@ public class PlayerStone : MonoBehaviour
                     ref velocity, 
                     smoothTimeVertical);
 
-                //Check for bops
-                if (stoneToBop != null)
-                    {
-                        //Vector3 desplaza
-                        //stoneToBop.transform.localPosition=stoneToBop.targetPosition
-                        //stoneToBop.ReturnToStorage();
-                        //stoneToBop = null;
-                    }
+               
             }
             else
             {
@@ -128,7 +120,9 @@ public class PlayerStone : MonoBehaviour
             {
                 if ( currentTile.IsRollAgain)
                 {
+                   // moveQueue = null;
                     theStateManager.RollAgain();
+                    
                 }
                 if (penal== 0)
                 {
@@ -147,8 +141,16 @@ public class PlayerStone : MonoBehaviour
                        theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
                         Debug.Log("estas en la pozo ");
                     }
+                    if (currentTile.isOca)
+                    {//ToDo pregunta
+                        Debug.Log("estas en la oca");
+                        Vector3 oca = currentTile.ocaAoca.transform.position;
+                        this.transform.position = oca;
+                        currentTile = currentTile.ocaAoca;
+
+                    }
                 }
-               
+
             }
         }
 
@@ -156,7 +158,7 @@ public class PlayerStone : MonoBehaviour
 
     void SetNewTargetPosition(Vector3 pos)
     {
-        Vector3 desplazamiento=new Vector3(0,0,0);
+        Vector3 desplazamiento = new Vector3(0, 0, 0);
         switch (theStateManager.CurrentPlayerId)
         {
             case 0:
@@ -165,12 +167,12 @@ public class PlayerStone : MonoBehaviour
             case 1:
                 desplazamiento = new Vector3(-0.5f, 0, 0.5f);
                 break;
-                
+
             default:
-                
+
                 break;
         }
-        targetPosition = pos+ desplazamiento ;
+        targetPosition = pos + desplazamiento;
         velocity = Vector3.zero;
         isAnimating = true;
     }
@@ -198,7 +200,6 @@ public class PlayerStone : MonoBehaviour
         }
 
         int spacesToMove = theStateManager.DiceTotal;
-        spacesToMove = 6;
         if (spacesToMove == 0)
         {
             return;
@@ -210,11 +211,7 @@ public class PlayerStone : MonoBehaviour
 
         // TODO: Check to see if the destination is legal!
 
-        if(finalTile == null)
-        {
-            // Hey, we're scoring this stone!
-            scoreMe = true;
-        }
+       
 
         this.transform.SetParent(null); // Become Batman
 

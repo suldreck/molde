@@ -349,13 +349,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1601930837743718, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
       propertyPath: m_Name
-      value: Player1-Start3
+      value: oca1
       objectReference: {fileID: 0}
     - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
         type: 2}
       propertyPath: NextTiles.Array.data[0]
       value: 
       objectReference: {fileID: 1298206705}
+    - target: {fileID: 23174451961674738, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0baae724f295b246934d71dc05ba1e6, type: 2}
+    - target: {fileID: 1601930837743718, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
+      propertyPath: m_TagString
+      value: oca
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: IsRollAgain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: isOca
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: ocaAoca
+      value: 
+      objectReference: {fileID: 271508735}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
   m_IsPrefabParent: 0
@@ -514,7 +538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1601930837743718, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
       propertyPath: m_Name
-      value: Middle2
+      value: oca2
       objectReference: {fileID: 0}
     - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
         type: 2}
@@ -525,11 +549,30 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec94b35b9b18f1c4880cb44e987b1fa6, type: 2}
+      objectReference: {fileID: 2100000, guid: b0baae724f295b246934d71dc05ba1e6, type: 2}
     - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
         type: 2}
       propertyPath: isCarcel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601930837743718, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
+      propertyPath: m_TagString
+      value: oca
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: IsRollAgain
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: isOca
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: ocaAoca
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
@@ -819,6 +862,7 @@ MonoBehaviour:
   IsDoneRolling: 0
   IsDoneClicking: 0
   IsDoneAnimating: 0
+  penal: 0000000000000000
   NoLegalMovesPopup: {fileID: 309473613}
 --- !u!4 &603601581
 Transform:
@@ -1498,6 +1542,8 @@ MonoBehaviour:
   isPosada: 0
   isPozo: 0
   IsRollAgain: 0
+  isOca: 0
+  ocaAoca: {fileID: 0}
 --- !u!1 &1010307641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1928,8 @@ MonoBehaviour:
   isPosada: 0
   isPozo: 0
   IsRollAgain: 0
+  isOca: 0
+  ocaAoca: {fileID: 0}
 --- !u!4 &1111297341
 Transform:
   m_ObjectHideFlags: 0
