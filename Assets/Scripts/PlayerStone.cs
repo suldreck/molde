@@ -30,10 +30,10 @@ public class PlayerStone : MonoBehaviour
     Vector3 velocity;
     float smoothTime = 0.25f;
     float smoothTimeVertical = 0.1f;
-    float smoothDistance = 0.01f;
-    float smoothHeight = 0.5f;
+    float smoothDistance = 0.2f;//extra 0.01f+0.8f
+    float smoothHeight = 0.5f/*+0.8f*/;
 
-    PlayerStone stoneToBop;
+    public PlayerStone stoneToBop;
 
 	
     // Update is called once per frame
@@ -44,7 +44,9 @@ public class PlayerStone : MonoBehaviour
             // Nothing for us to do.
             return;
         }
-		
+        Debug.Log("la distancia actual es"+ Vector3.Distance(
+               new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
+               targetPosition));	
         if (Vector3.Distance(
                new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
                targetPosition) < smoothDistance)
@@ -64,12 +66,14 @@ public class PlayerStone : MonoBehaviour
                     ref velocity, 
                     smoothTimeVertical);
 
-                // Check for bops
-                if(stoneToBop != null)
-                {
-                    stoneToBop.ReturnToStorage();
-                    stoneToBop = null;
-                }
+                //Check for bops
+                if (stoneToBop != null)
+                    {
+                        //Vector3 desplaza
+                        //stoneToBop.transform.localPosition=stoneToBop.targetPosition
+                        //stoneToBop.ReturnToStorage();
+                        //stoneToBop = null;
+                    }
             }
             else
             {
@@ -88,10 +92,11 @@ public class PlayerStone : MonoBehaviour
         }
         else
         {
+            float desplazamiento = 0.1f;//0.5f
             // Normal movement (sideways)
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
-                new Vector3(targetPosition.x, smoothHeight, targetPosition.z), 
+                new Vector3(targetPosition.x+desplazamiento, smoothHeight, targetPosition.z+desplazamiento), 
                 ref velocity, 
                 smoothTime);
         }

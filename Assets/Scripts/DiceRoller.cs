@@ -48,7 +48,7 @@ public class DiceRoller : MonoBehaviour
         for (int i = 0; i < DiceValues.Length; i++)
         {
             DiceValues[i] = Random.Range(0, 2);
-            theStateManager.DiceTotal += DiceValues[i];
+            theStateManager.DiceTotal = 1;//+= DiceValues[i];
 
             // Update the visuals to show the dice roll
             // TODO: This could include playing an animation -- either 2D or 3D
