@@ -8,7 +8,7 @@ public class StateManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		
+        
     }
 
     public int NumberOfPlayers = 2;
@@ -20,6 +20,7 @@ public class StateManager : MonoBehaviour
     public bool IsDoneRolling = false;
     public bool IsDoneClicking = false;
     public bool IsDoneAnimating = false;
+    public int [] penal= {0,0 };
 
     public GameObject NoLegalMovesPopup;
 

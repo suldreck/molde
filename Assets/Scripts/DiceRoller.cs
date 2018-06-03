@@ -45,34 +45,18 @@ public class DiceRoller : MonoBehaviour
         // We are going to use random number generation instead.
 
         theStateManager.DiceTotal = 0;
-        for (int i = 0; i < DiceValues.Length; i++)
+        theStateManager.DiceTotal +=Random.Range(1, 6);
+        if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
         {
-            theStateManager.DiceTotal +=Random.Range(1, 6);
-
-            // Update the visuals to show the dice roll
-            // TODO: This could include playing an animation -- either 2D or 3D
-
-            // We have 4 children, each is an image of the die. So grab that
-            // child, and update its Image component to use the correct Sprite
-
-            if (DiceValues[i] == 0)
-            {
-                this.transform.GetChild(i).GetComponent<Image>().sprite = 
-                    DiceImageZero[Random.Range(0, DiceImageZero.Length)];
-            }
-            else
-            {
-                this.transform.GetChild(i).GetComponent<Image>().sprite = 
-                    DiceImageOne[Random.Range(0, DiceImageOne.Length)];                
-            }
-
+            theStateManager.penal[theStateManager.CurrentPlayerId]--;
+            theStateManager.NewTurn();
         }
+        else
+        {
 
-        // If we had an animation, we'd have to wait for it to finish before
-        // we set doneRolling, but we can just set it right away
-        //theStateManager.DiceTotal = 15;
         theStateManager.IsDoneRolling = true;
-        theStateManager.CheckLegalMoves();
+        } 
+       // theStateManager.CheckLegalMoves();
 
 
         //Debug.Log("Rolled: " + DiceTotal);

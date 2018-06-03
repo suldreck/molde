@@ -43,9 +43,7 @@ public class PlayerStone : MonoBehaviour
             // Nothing for us to do.
             return;
         }
-        Debug.Log("la distancia actual es"+ Vector3.Distance(
-               new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
-               targetPosition));
+              
         bool respuestaDistancia = Vector3.Distance(
                new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
                targetPosition) < smoothDistance;
@@ -83,7 +81,6 @@ public class PlayerStone : MonoBehaviour
         }
         else if (this.transform.position.y < (smoothHeight - smoothDistance))
         {
-            Debug.Log("distancia  en el else this.transform.position.y < (smoothHeight - smoothDistance) " + (smoothHeight - smoothDistance));
             // We want to rise up before we move sideways.
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
@@ -105,7 +102,6 @@ public class PlayerStone : MonoBehaviour
 
     void AdvanceMoveQueue()
     {
-        Debug.Log("penalizacion" +penal);
         if (moveQueue != null && moveQueueIndex < moveQueue.Length  && penal==0)
         {
             Tile nextTile = moveQueue[moveQueueIndex];
@@ -113,7 +109,6 @@ public class PlayerStone : MonoBehaviour
             {
                 // We are probably being scored
                 // TODO: Move us to the scored pile
-                Debug.Log("SCORING TILE!");
                 SetNewTargetPosition(this.transform.position + Vector3.right * 10f);
             }
             else
@@ -125,7 +120,6 @@ public class PlayerStone : MonoBehaviour
         else
         {
             // The movement queue is empty, so we are done animating!
-            Debug.Log("Done animating!");
             this.isAnimating = false;
             theStateManager.IsDoneAnimating = true;
 
@@ -140,30 +134,21 @@ public class PlayerStone : MonoBehaviour
                 {
                     if (currentTile.isCarcel)
                     {//ToDo pregunta
-                       penal= 3;
+                       theStateManager.penal[theStateManager.CurrentPlayerId]= 3;
                         Debug.Log("estas en la carcel ");
                     }
                     if (currentTile.isPosada)
                     {//ToDo pregunta
-                       penal= 2;
-                        Debug.Log("estas en la carcel ");
+                       theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
+                        Debug.Log("estas en la posada ");
                     }
                     if (currentTile.isPozo)
                     {//ToDo pregunta
-                        penal= 2;
-                        Debug.Log("estas en la carcel ");
+                       theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
+                        Debug.Log("estas en la pozo ");
                     }
                 }
-                else
-                {// <1
-                    if(penal>0)
-                    {
-                        //Todo pregunta, si la pregunta se acierta penalizacion =-1
-                        penal--;
-                        theStateManager.NewTurn();
-                    }
-
-                }
+               
             }
         }
 
@@ -296,7 +281,6 @@ public class PlayerStone : MonoBehaviour
     // Return the final tile we'd land on if we moved __ spaces
     Tile GetTileAhead( int spacesToMove )
     {
-        Debug.Log(spacesToMove);
         Tile[] tiles = GetTilesAhead( spacesToMove );
 
         if(tiles == null)
@@ -317,7 +301,6 @@ public class PlayerStone : MonoBehaviour
 
     bool CanLegallyMoveTo( Tile destinationTile )
     {
-        Debug.Log("CanLegallyMoveTo: " + destinationTile);
 
         if(destinationTile == null)
         {
@@ -358,7 +341,6 @@ public class PlayerStone : MonoBehaviour
 
     public void ReturnToStorage()
     {
-        Debug.Log("ReturnToStorage");
         //currentTile.PlayerStone = null;
         //currentTile = null;
 
