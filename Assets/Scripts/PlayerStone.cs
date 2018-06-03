@@ -30,7 +30,7 @@ public class PlayerStone : MonoBehaviour
     Vector3 velocity;
     float smoothTime = 0.25f;
     float smoothTimeVertical = 0.1f;
-    float smoothDistance = 0.12f;//extra 0.01f+0.8f
+    float smoothDistance = 0.01f;//extra 0.01f+0.8f
     float smoothHeight = 0.5f/*+0.8f*/;
 
     public PlayerStone stoneToBop;
@@ -46,10 +46,11 @@ public class PlayerStone : MonoBehaviour
         }
         Debug.Log("la distancia actual es"+ Vector3.Distance(
                new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
-               targetPosition));	
-        if (Vector3.Distance(
+               targetPosition));
+        bool respuestaDistancia = Vector3.Distance(
                new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z),
-               targetPosition) < smoothDistance)
+               targetPosition) < smoothDistance;
+        if (respuestaDistancia)
         {
             // We've reached the target position -- do we still have moves in the queue?
 
@@ -59,11 +60,10 @@ public class PlayerStone : MonoBehaviour
                 ((this.transform.position.y-smoothDistance) > targetPosition.y)
             )
             {
-                float desplazamiento = 0.5f;//0.5f
                 // We are totally out of moves (and too high up), the only thing left to do is drop down.
                 this.transform.position = Vector3.SmoothDamp(
                     this.transform.position, 
-                    new Vector3(this.transform.position.x+desplazamiento, targetPosition.y, this.transform.position.z+ desplazamiento), 
+                    new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z), 
                     ref velocity, 
                     smoothTimeVertical);
 
@@ -94,7 +94,6 @@ public class PlayerStone : MonoBehaviour
         }
         else
         {
-            float desplazamiento = 0.5f;//0.5f
             // Normal movement (sideways)
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
@@ -141,7 +140,21 @@ public class PlayerStone : MonoBehaviour
 
     void SetNewTargetPosition(Vector3 pos)
     {
-        targetPosition = pos;
+        Vector3 desplazamiento=new Vector3(0,0,0);
+        switch (theStateManager.CurrentPlayerId)
+        {
+            case 0:
+                desplazamiento = new Vector3(0.5f, 0, 0.5f);
+                break;
+            case 1:
+                desplazamiento = new Vector3(-0.5f, 0, 0.5f);
+                break;
+                
+            default:
+                
+                break;
+        }
+        targetPosition = pos+ desplazamiento ;
         velocity = Vector3.zero;
         isAnimating = true;
     }
