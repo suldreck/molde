@@ -182,7 +182,7 @@ public class PlayerStone : MonoBehaviour
         }
 
         int spacesToMove = theStateManager.DiceTotal;
-
+        
         if (spacesToMove == 0)
         {
             return;
@@ -198,25 +198,6 @@ public class PlayerStone : MonoBehaviour
         {
             // Hey, we're scoring this stone!
             scoreMe = true;
-        }
-        else
-        {
-            if(CanLegallyMoveTo(finalTile) == false)
-            {
-                // Not allowed!
-                finalTile = currentTile;
-                moveQueue = null;
-                return;
-            }
-
-            // If there is an enemy tile in our legal space, the we kick it out.
-            if(finalTile.PlayerStone != null)
-            {
-                //finalTile.PlayerStone.ReturnToStorage();
-                stoneToBop = finalTile.PlayerStone;
-                stoneToBop.currentTile.PlayerStone = null;
-                stoneToBop.currentTile = null;
-            }
         }
 
         this.transform.SetParent(null); // Become Batman
