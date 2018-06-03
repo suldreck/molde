@@ -30,7 +30,7 @@ public class PlayerStone : MonoBehaviour
     Vector3 velocity;
     float smoothTime = 0.25f;
     float smoothTimeVertical = 0.1f;
-    float smoothDistance = 0.2f;//extra 0.01f+0.8f
+    float smoothDistance = 0.12f;//extra 0.01f+0.8f
     float smoothHeight = 0.5f/*+0.8f*/;
 
     public PlayerStone stoneToBop;
@@ -59,10 +59,11 @@ public class PlayerStone : MonoBehaviour
                 ((this.transform.position.y-smoothDistance) > targetPosition.y)
             )
             {
+                float desplazamiento = 0.5f;//0.5f
                 // We are totally out of moves (and too high up), the only thing left to do is drop down.
                 this.transform.position = Vector3.SmoothDamp(
                     this.transform.position, 
-                    new Vector3(this.transform.position.x, targetPosition.y, this.transform.position.z), 
+                    new Vector3(this.transform.position.x+desplazamiento, targetPosition.y, this.transform.position.z+ desplazamiento), 
                     ref velocity, 
                     smoothTimeVertical);
 
@@ -83,6 +84,7 @@ public class PlayerStone : MonoBehaviour
         }
         else if (this.transform.position.y < (smoothHeight - smoothDistance))
         {
+            Debug.Log("distancia  en el else this.transform.position.y < (smoothHeight - smoothDistance) " + (smoothHeight - smoothDistance));
             // We want to rise up before we move sideways.
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
@@ -92,11 +94,11 @@ public class PlayerStone : MonoBehaviour
         }
         else
         {
-            float desplazamiento = 0.1f;//0.5f
+            float desplazamiento = 0.5f;//0.5f
             // Normal movement (sideways)
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
-                new Vector3(targetPosition.x+desplazamiento, smoothHeight, targetPosition.z+desplazamiento), 
+                new Vector3(targetPosition.x, smoothHeight, targetPosition.z), 
                 ref velocity, 
                 smoothTime);
         }
