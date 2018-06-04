@@ -44,7 +44,7 @@ public class DiceRoller : MonoBehaviour
 
         // We are going to use random number generation instead.
 
-        theStateManager.DiceTotal = 3;
+        theStateManager.DiceTotal = 2;
         //theStateManager.DiceTotal +=Random.Range(1, 6);
         if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
         {

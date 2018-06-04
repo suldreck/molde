@@ -3170,6 +3170,11 @@ Prefab:
       propertyPath: NextTiles.Array.data[0]
       value: 
       objectReference: {fileID: 192960330}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: isCarcel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
   m_IsPrefabParent: 0
