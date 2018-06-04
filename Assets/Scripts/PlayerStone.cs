@@ -149,7 +149,8 @@ public class PlayerStone : MonoBehaviour
                         Vector3 oca = currentTile.ocaAoca.transform.position;
                         this.transform.position = oca;
                         currentTile = currentTile.ocaAoca;
-
+                        // targetPosition = Vector3.zero;
+                        targetPosition = currentTile.transform.position;
                     }
                 }
 
