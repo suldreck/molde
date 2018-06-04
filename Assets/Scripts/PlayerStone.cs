@@ -49,7 +49,7 @@ public class PlayerStone : MonoBehaviour
         if (respuestaDistancia)
         {
             // We've reached the target position -- do we still have moves in the queue?
-
+            Debug.Log("target position" + targetPosition);
             if( 
                 (moveQueue == null || moveQueueIndex == (moveQueue.Length))
                 &&
@@ -81,7 +81,7 @@ public class PlayerStone : MonoBehaviour
                 smoothTimeVertical);
         }
         else
-        {
+        {//nada
             // Normal movement (sideways)
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
@@ -96,7 +96,9 @@ public class PlayerStone : MonoBehaviour
     {
         if (moveQueue != null && moveQueueIndex < moveQueue.Length  && penal==0)
         {
+
             Tile nextTile = moveQueue[moveQueueIndex];
+          //  Debug.Log("nextTitle : " + nextTile);
             if (nextTile == null)
             {
                 // We are probably being scored
