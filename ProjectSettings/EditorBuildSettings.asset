@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/otra.unity
+    guid: df069d938e368954487c1609374cad04
+  - enabled: 1
+    path: Assets/oca.unity
+    guid: b48e3eea09fca894d88c9c4c01d391a4
+  - enabled: 1
+    path: Assets/menu.unity
+    guid: 728f9d93467e029498d4ca72da82cc91
+  m_configObjects: {}

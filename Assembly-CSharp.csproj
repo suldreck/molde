@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\CurrentPlayerDisplay.cs" />
     <Compile Include="Assets\Scripts\DiceRoller.cs" />
     <Compile Include="Assets\Scripts\DiceTotalDisplay.cs" />
+    <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStone.cs" />
     <Compile Include="Assets\Scripts\StateManager.cs" />
     <Compile Include="Assets\Scripts\StoneStorage.cs" />
