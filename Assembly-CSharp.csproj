@@ -59,12 +59,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\salir.cs" />
     <Compile Include="Assets\Scripts\CameraDolly.cs" />
     <Compile Include="Assets\Scripts\CurrentPlayerDisplay.cs" />
     <Compile Include="Assets\Scripts\DiceRoller.cs" />
     <Compile Include="Assets\Scripts\DiceTotalDisplay.cs" />
     <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStone.cs" />
+    <Compile Include="Assets\Scripts\sPanel.cs" />
     <Compile Include="Assets\Scripts\StateManager.cs" />
     <Compile Include="Assets\Scripts\StoneStorage.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
