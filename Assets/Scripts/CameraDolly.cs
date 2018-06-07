@@ -21,6 +21,7 @@ public class CameraDolly : MonoBehaviour {
    float [] distancia;
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("ver"+ stone[theStateManager.CurrentPlayerId].name);
         float theAngle = this.transform.rotation.eulerAngles.y;
         if(theAngle > 180)
             theAngle -= 360f;

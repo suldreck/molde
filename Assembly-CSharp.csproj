@@ -59,7 +59,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\noDestruir.cs" />
     <Compile Include="Assets\salir.cs" />
     <Compile Include="Assets\Scripts\CameraDolly.cs" />
     <Compile Include="Assets\Scripts\CurrentPlayerDisplay.cs" />

@@ -9,7 +9,6 @@ public class PlayerStone : MonoBehaviour
     {
         theStateManager = GameObject.FindObjectOfType<StateManager>();
         targetPosition = this.transform.position;
-        //DontDestroyOnLoad(gameObject);//no destruyas las fichas 
     }
 
     public Tile StartingTile;
