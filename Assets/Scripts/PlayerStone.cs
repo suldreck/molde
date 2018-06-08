@@ -9,6 +9,7 @@ public class PlayerStone : MonoBehaviour
     {
         theStateManager = GameObject.FindObjectOfType<StateManager>();
         targetPosition = this.transform.position;
+       
     }
 
     public Tile StartingTile;
@@ -29,7 +30,7 @@ public class PlayerStone : MonoBehaviour
     float smoothTime = 0.25f;
     float smoothTimeVertical = 0.1f;
     float smoothDistance = 0.01f;//extra 0.01f+0.8f
-    float smoothHeight = 0.8f;//+0.5/*+0.8f*/;
+    float smoothHeight =0.5f ;//+0.5/*+0.8f*/;
 
     public PlayerStone stoneToBop;
 
@@ -75,7 +76,7 @@ public class PlayerStone : MonoBehaviour
             // We want to rise up before we move sideways.
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
-                new Vector3(this.transform.position.x, smoothHeight+1, this.transform.position.z), 
+                new Vector3(this.transform.position.x, smoothHeight, this.transform.position.z), 
                 ref velocity, 
                 smoothTimeVertical);
         }
@@ -161,11 +162,9 @@ public class PlayerStone : MonoBehaviour
     void SetNewTargetPosition(Vector3 pos)
     {
         Vector3 desplazamiento = new Vector3(0, 0, 0);
-        float altura = (targetPosition.y + this.transform.position.y) ;
-        if (altura < 0)
-            altura = altura * (-1);
-        Debug.Log(" target position antes" + targetPosition);
-        Debug.Log(" altura" + altura);
+        float altura = 0 ;
+        
+       
         switch (theStateManager.CurrentPlayerId)
         {
             case 0:
@@ -180,8 +179,7 @@ public class PlayerStone : MonoBehaviour
                 break;
         }
         targetPosition = pos + desplazamiento;
-        velocity = Vector3.zero;
-        Debug.Log(" target position" + targetPosition);
+        velocity = Vector3.zero;     
         isAnimating = true;
     }
 
