@@ -29,7 +29,7 @@ public class PlayerStone : MonoBehaviour
     float smoothTime = 0.25f;
     float smoothTimeVertical = 0.1f;
     float smoothDistance = 0.01f;//extra 0.01f+0.8f
-    float smoothHeight = 0.5f/*+0.8f*/;
+    float smoothHeight = 0.8f;//+0.5/*+0.8f*/;
 
     public PlayerStone stoneToBop;
 
@@ -75,7 +75,7 @@ public class PlayerStone : MonoBehaviour
             // We want to rise up before we move sideways.
             this.transform.position = Vector3.SmoothDamp(
                 this.transform.position, 
-                new Vector3(this.transform.position.x, smoothHeight, this.transform.position.z), 
+                new Vector3(this.transform.position.x, smoothHeight+1, this.transform.position.z), 
                 ref velocity, 
                 smoothTimeVertical);
         }
@@ -130,21 +130,21 @@ public class PlayerStone : MonoBehaviour
                     if (currentTile.isCarcel)
                     {//ToDo pregunta
                        theStateManager.penal[theStateManager.CurrentPlayerId]= 3;
-                        Debug.Log("estas en la carcel ");
+                       
                     }
                     if (currentTile.isPosada)
                     {//ToDo pregunta
                        theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
-                        Debug.Log("estas en la posada ");
+                       
                     }
                     if (currentTile.isPozo)
                     {//ToDo pregunta
                        theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
-                        Debug.Log("estas en la pozo ");
+                      
                     }
                     if (currentTile.isOca)
                     {//ToDo pregunta
-                        Debug.Log("estas en la oca");
+                      
                         Vector3 oca = currentTile.ocaAoca.transform.position;
                         this.transform.position = oca;
                         currentTile = currentTile.ocaAoca;
@@ -161,13 +161,18 @@ public class PlayerStone : MonoBehaviour
     void SetNewTargetPosition(Vector3 pos)
     {
         Vector3 desplazamiento = new Vector3(0, 0, 0);
+        float altura = (targetPosition.y + this.transform.position.y) ;
+        if (altura < 0)
+            altura = altura * (-1);
+        Debug.Log(" target position antes" + targetPosition);
+        Debug.Log(" altura" + altura);
         switch (theStateManager.CurrentPlayerId)
         {
             case 0:
-                desplazamiento = new Vector3(0.5f, 0, 0.5f);
+                desplazamiento = new Vector3(0.5f, altura, 0.5f);
                 break;
             case 1:
-                desplazamiento = new Vector3(-0.5f, 0, 0.5f);
+                desplazamiento = new Vector3(-0.5f, altura, 0.5f);
                 break;
 
             default:
@@ -176,6 +181,7 @@ public class PlayerStone : MonoBehaviour
         }
         targetPosition = pos + desplazamiento;
         velocity = Vector3.zero;
+        Debug.Log(" target position" + targetPosition);
         isAnimating = true;
     }
 
@@ -358,3 +364,4 @@ public class PlayerStone : MonoBehaviour
     }
 
 }
+
