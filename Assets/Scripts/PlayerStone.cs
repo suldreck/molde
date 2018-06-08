@@ -49,7 +49,6 @@ public class PlayerStone : MonoBehaviour
         if (respuestaDistancia)
         {
             // We've reached the target position -- do we still have moves in the queue?
-            Debug.Log("target position" + targetPosition);
             if( 
                 (moveQueue == null || moveQueueIndex == (moveQueue.Length))
                 &&
