@@ -20,6 +20,8 @@ public class StateManager : MonoBehaviour
     public bool IsDoneRolling = false;
     public bool IsDoneClicking = false;
     public bool IsDoneAnimating = false;
+
+    public bool isCorrect = false;
     public int [] penal= {0,0 };
 
     public GameObject NoLegalMovesPopup;

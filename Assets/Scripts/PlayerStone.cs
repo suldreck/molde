@@ -9,6 +9,7 @@ public class PlayerStone : MonoBehaviour
     {
         theStateManager = GameObject.FindObjectOfType<StateManager>();
         targetPosition = this.transform.position;
+        theGameController = GameObject.FindObjectOfType<GameController>();
     }
 
     public Tile StartingTile;
@@ -18,6 +19,7 @@ public class PlayerStone : MonoBehaviour
 
     public int penal = 0;//si entra en la casilla adquiere una penalizacion,turnos sin jugar
     StateManager theStateManager;
+    GameController theGameController;
 
     Tile[] moveQueue;
     int moveQueueIndex;
@@ -145,11 +147,14 @@ public class PlayerStone : MonoBehaviour
                     if (currentTile.isOca)
                     {//ToDo pregunta
                         Debug.Log("estas en la oca");
-                        Vector3 oca = currentTile.ocaAoca.transform.position;
-                        this.transform.position = oca;
-                        currentTile = currentTile.ocaAoca;
-                        // targetPosition = Vector3.zero;
-                        targetPosition = currentTile.transform.position;
+                        if(currentTile.ocaAoca !=null)
+                        {
+                            Vector3 oca = currentTile.ocaAoca.transform.position;
+                            this.transform.position = oca;
+                            currentTile = currentTile.ocaAoca;
+                            // targetPosition = Vector3.zero;
+                            targetPosition = currentTile.transform.position;
+                        }
                     }
                 }
 
@@ -195,6 +200,19 @@ public class PlayerStone : MonoBehaviour
             // We can't move yet.
             return;
         }
+     
+            if (theStateManager.isCorrect == true && theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
+            {
+                theStateManager.penal[theStateManager.CurrentPlayerId] = 0;
+            }
+            else  if(theStateManager.isCorrect == false && theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
+            {
+                theStateManager.penal[theStateManager.CurrentPlayerId]--;
+                theStateManager.NewTurn();
+            return;
+            }
+        
+
         if (theStateManager.IsDoneClicking == true)
         {
             // We've already done a move!
