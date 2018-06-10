@@ -10,7 +10,7 @@ public class DataController : MonoBehaviour
 	{
 		DontDestroyOnLoad (gameObject);
 		
-		SceneManager.LoadScene ("MenuScreen");
+		SceneManager.LoadScene ("oca");
 	}
 	
 	public RoundData GetCurrentRoundData()

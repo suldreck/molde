@@ -113,6 +113,7 @@
     <Compile Include="Assets\preguntas\Scripts\QuestionData.cs" />
     <Compile Include="Assets\preguntas\Scripts\RoundData.cs" />
     <Compile Include="Assets\preguntas\Scripts\SimpleObjectPool.cs" />
+    <Compile Include="Assets\respuesta.cs" />
     <None Include="Assets\juegoOca\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\juegoOca\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\juegoOca\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />

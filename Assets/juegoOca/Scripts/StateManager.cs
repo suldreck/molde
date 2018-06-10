@@ -21,7 +21,8 @@ public class StateManager : MonoBehaviour
     public bool IsDoneClicking = false;
     public bool IsDoneAnimating = false;
     public int [] penal= {0,0 };
-
+    public bool contestacion;
+    public bool test = false;
     public GameObject NoLegalMovesPopup;
 
     public void NewTurn()

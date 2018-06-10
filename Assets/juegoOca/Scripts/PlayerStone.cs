@@ -145,12 +145,14 @@ public class PlayerStone : MonoBehaviour
                     }
                     if (currentTile.isOca)
                     {//ToDo pregunta
-                      
-                        Vector3 oca = currentTile.ocaAoca.transform.position;
-                        this.transform.position = oca;
-                        currentTile = currentTile.ocaAoca;
-                        // targetPosition = Vector3.zero;
-                        targetPosition = currentTile.transform.position;
+                        if (currentTile.ocaAoca != null)
+                        {
+                            Vector3 oca = currentTile.ocaAoca.transform.position;
+                            this.transform.position = oca;
+                            currentTile = currentTile.ocaAoca;
+                            // targetPosition = Vector3.zero;
+                            targetPosition = currentTile.transform.position;
+                        }
                     }
                 }
 
@@ -188,6 +190,7 @@ public class PlayerStone : MonoBehaviour
         // TODO:  Is the mouse over a UI element? In which case, ignore this click.
 
         // Is this the correct player?
+        
         if (theStateManager.CurrentPlayerId != PlayerId)
         {
             return;
@@ -204,8 +207,21 @@ public class PlayerStone : MonoBehaviour
             // We've already done a move!
             return;
         }
+        if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
+        {
+            if (theStateManager.contestacion == true)
+            {
+                theStateManager.penal[theStateManager.CurrentPlayerId] = 0;//penal a 0
+            }
+            else
+            {
+                theStateManager.penal[theStateManager.CurrentPlayerId]--;//un turno menos de penalizacion pero paso al siguiente 
+                theStateManager.NewTurn();
+                return;
+            }
+        }
 
-        int spacesToMove = theStateManager.DiceTotal;
+            int spacesToMove = theStateManager.DiceTotal;
         if (spacesToMove == 0)
         {
             return;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DiceRoller : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class DiceRoller : MonoBehaviour
         theStateManager = GameObject.FindObjectOfType<StateManager>();
     }
 
-    StateManager theStateManager;
+    public StateManager theStateManager;
 
     public int[] DiceValues;
 
     public Sprite[] DiceImageOne;
     public Sprite[] DiceImageZero;
+
+
 
 
     // Update is called once per frame
@@ -45,10 +48,16 @@ public class DiceRoller : MonoBehaviour
         // We are going to use random number generation instead.
 
         theStateManager.DiceTotal = Random.Range(1, 6);
+        theStateManager.DiceTotal = 2;
         if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
         {
-            theStateManager.penal[theStateManager.CurrentPlayerId]--;
-            theStateManager.NewTurn();
+            
+            SceneManager.LoadScene("Game");
+
+            theStateManager.IsDoneRolling = true;
+
+            //theStateManager.penal[theStateManager.CurrentPlayerId]--;
+            //theStateManager.NewTurn();
         }
         else
         {
