@@ -8,10 +8,10 @@ public class StateManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+       
     }
-
-    public int NumberOfPlayers = 4;
+   
+    public int NumberOfPlayers =3;
     public int CurrentPlayerId = 0;
     
     public int DiceTotal;

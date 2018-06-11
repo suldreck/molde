@@ -11,18 +11,22 @@ public class NJugadores : MonoBehaviour {
         jugadores = 1;
 
         caja = GameObject.FindObjectOfType<Text>();
-        
+        aux = "";
+        caja.text = "1";
+        theStateManager = GameObject.FindObjectOfType<StateManager>();
     }
+    StateManager theStateManager;
     Text caja;
-    int jugadores;
+    public int jugadores;
+    string aux;
 	// Update is called once per frame
 	void Update () {
-        if (caja!= null)
-        {
-            jugadores = int.Parse(caja.text);
-            if (jugadores > 4)
-                jugadores = 4;
-        }
+        //if (caja!= null)
+        //{
+        //    jugadores = int.Parse(caja.text);
+        //    if (jugadores > 4)
+        //        jugadores = 4;
+        //}
     }
     public void operacion(bool signo)
     {
@@ -35,11 +39,13 @@ public class NJugadores : MonoBehaviour {
         }
         else
         {
-            if(jugadores>1)
+            if (jugadores > 1)
                 jugadores = jugadores - 1;
         }
+        aux = jugadores.ToString();
         caja.text =""+ jugadores;
         //caja.text = "nada";
-
+        theStateManager.NumberOfPlayers = jugadores;
     }
+    
 }

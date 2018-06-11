@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 290750814}
   m_Layer: 0
   m_Name: Player2-StoneStorage
-  m_TagString: Untagged
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,6 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StonePrefab: {fileID: 1138692715815464, guid: 740b5b6373df7a646b40a0fe4d13731b,
     type: 2}
+  SPrefab: {fileID: 0}
   StartingTile: {fileID: 1886698388}
 --- !u!1 &296849879
 GameObject:
@@ -745,7 +746,7 @@ GameObject:
   - component: {fileID: 504310580}
   m_Layer: 0
   m_Name: 'Player4-StoneStorage '
-  m_TagString: Untagged
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StonePrefab: {fileID: 1977241903675398, guid: f83fb35762445b74dafaac9b309122ee,
     type: 2}
+  SPrefab: {fileID: 0}
   StartingTile: {fileID: 1886698388}
 --- !u!114 &517801821 stripped
 MonoBehaviour:
@@ -842,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca25b81987b3c04fb8ac5c32a240ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPlayers: 2
+  NumberOfPlayers: 3
   CurrentPlayerId: 0
   DiceTotal: 0
   IsDoneRolling: 0
@@ -1322,7 +1324,7 @@ GameObject:
   - component: {fileID: 892573528}
   m_Layer: 0
   m_Name: Player1-StoneStorage
-  m_TagString: Untagged
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,6 +1356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StonePrefab: {fileID: 1138692715815464, guid: 21b2e42baf17c594fab50572e63543ae,
     type: 2}
+  SPrefab: {fileID: 0}
   StartingTile: {fileID: 1886698388}
 --- !u!1 &896847663
 GameObject:
@@ -3353,7 +3356,7 @@ GameObject:
   - component: {fileID: 1944827596}
   m_Layer: 0
   m_Name: Player3-StoneStorage
-  m_TagString: Untagged
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3385,6 +3388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StonePrefab: {fileID: 1138692715815464, guid: b6c5df5bdf907c14b8ac53c022ed7c79,
     type: 2}
+  SPrefab: {fileID: 0}
   StartingTile: {fileID: 1886698388}
 --- !u!1001 &1994337022
 Prefab:

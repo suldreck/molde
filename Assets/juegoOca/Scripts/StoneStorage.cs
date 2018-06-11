@@ -6,18 +6,52 @@ public class StoneStorage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
         // Create one stone for each placeholder spot
+        theStateManager = GameObject.FindObjectOfType<StateManager>();
+        // Instantiate a new copy of the stone prefab
+       // GameObject.Find("Player2-stone").SetActive(true);
+      
+        //if ((PlayerStone)StonePrefab.PlayerId + 1 <= theStateManager.NumberOfPlayers)
+        //{
+            GameObject theStone = Instantiate(StonePrefab);
+        numeroJugador = int.Parse(this.tag);
+            if (int.Parse(this.tag)<=theStateManager.NumberOfPlayers)
+            {
+                theStone.GetComponent<PlayerStone>().StartingTile = this.StartingTile;
+                theStone.GetComponent<PlayerStone>().MyStoneStorage = this;
+                AddStoneToStorage(theStone, this.transform.GetChild(0));
+            }
+        else
+        {
+            switch (numeroJugador)
+            {
+                //case 2:
+                //    var player2 = GameObject.Find("Player2-Stone");
+                //    break;
+                case 3:
+                    //GameObject.Find("Player2-stone").SetActive(true);
+                    GameObject.Find("Player3-Stone(Clone)").SetActive(false);
+                    break;
+                case 4:
+                    //GameObject.Find("Player2-Stone").SetActive(true);
+                    //GameObject.Find("Player3-Stone").SetActive(true);
+                    GameObject.Find("Player4-Stone(Clone)").SetActive(false);
+                    break;
+                default:
+                    break;
 
-            // Instantiate a new copy of the stone prefab
-            GameObject theStone = Instantiate( StonePrefab );
-            theStone.GetComponent<PlayerStone>().StartingTile = this.StartingTile;
-            theStone.GetComponent<PlayerStone>().MyStoneStorage = this;
-            AddStoneToStorage(theStone , this.transform.GetChild(0) );
-   
-	}
+            }
+        }
+        
+        //  }
 
+    }
+    int numeroJugador;
+    StateManager theStateManager;
+    string valorJugador;
     public GameObject StonePrefab;
+    public PlayerStone SPrefab;
     public Tile StartingTile;
 
 

@@ -10,7 +10,7 @@ public class levelManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Log("entra  en el menu");
+       
     }
 
     // Update is called once per frame

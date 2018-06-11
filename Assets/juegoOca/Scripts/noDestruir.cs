@@ -14,21 +14,39 @@ public class noDestruir : MonoBehaviour {
             {
             Destroy(gameObject);
             }
+
     }
+    
     // Use this for initialization
     void Start()
     {
         jugadores = GameObject.FindObjectsOfType<PlayerStone>();
         //hand = GameObject.Find("Player3-StoneStorage ");
-        
+
         //if (hand.GetType() == typeof(PlayerStone))
         //    Debug.Log("Es del mismo tipo que playerstone");
+    
         theStateManager = GameObject.FindObjectOfType<StateManager>();
-        for (int i = 0; i < jugadores.Length; i++)
-        {
-            Debug.Log("  " + i + "" + jugadores[i].name);
-        }
-        
+        //switch (theStateManager.NumberOfPlayers)
+        //{
+        //    case 2:
+        //        var player2=GameObject.Find("Player2-Stone");
+        //        break;
+        //    case 3:
+        //        GameObject.Find("Player2-stone").SetActive(true);
+        //        GameObject.Find("Player3-Stone").SetActive(true);
+        //        break;
+        //    case 4:
+        //        GameObject.Find("Player2-Stone").SetActive(true);
+        //        GameObject.Find("Player3-Stone").SetActive(true);
+        //        GameObject.Find("Player4-Stone").SetActive(true);
+        //        break;
+        //    default:
+        //        break;
+
+        //}
+        //GameObject.Find("Player1-Stone").SetActive(true);
+
     }
     StateManager theStateManager;
     PlayerStone [] jugadores;
