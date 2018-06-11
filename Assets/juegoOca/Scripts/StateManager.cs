@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
         
     }
 
-    public int NumberOfPlayers = 2;
+    public int NumberOfPlayers = 3;
     public int CurrentPlayerId = 0;
     
     public int DiceTotal;
@@ -58,7 +58,7 @@ public class StateManager : MonoBehaviour
 
     }
 
-    public void CheckLegalMoves()
+   /* public void CheckLegalMoves()
     {
         // If we rolled a zero, then we clearly have no legal moves.
         if(DiceTotal == 0)
@@ -90,8 +90,8 @@ public class StateManager : MonoBehaviour
         }
 
     }
-
-    IEnumerator NoLegalMoveCoroutine() 
+    */
+    /*IEnumerator NoLegalMoveCoroutine() 
     {
         // Display message
         NoLegalMovesPopup.SetActive(true);
@@ -102,5 +102,5 @@ public class StateManager : MonoBehaviour
         NoLegalMovesPopup.SetActive(false);
 
         NewTurn();
-    }
+    }*/
 }

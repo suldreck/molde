@@ -140,7 +140,7 @@ public class PlayerStone : MonoBehaviour
                     }
                     if (currentTile.isPozo)
                     {//ToDo pregunta
-                       theStateManager.penal[theStateManager.CurrentPlayerId]= 2;
+                       theStateManager.penal[theStateManager.CurrentPlayerId]= 5;
                       
                     }
                     if (currentTile.isOca)
