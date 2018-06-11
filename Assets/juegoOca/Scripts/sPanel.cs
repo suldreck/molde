@@ -22,7 +22,7 @@ public class sPanel : MonoBehaviour {
 	}
     void menus()
     {
-        Debug.Log("menu "+ SceneManager.GetActiveScene().name);
+       // Debug.Log("menu "+ SceneManager.GetActiveScene().name);
         switch (SceneManager.GetActiveScene().name)
 
         {
@@ -46,6 +46,14 @@ public class sPanel : MonoBehaviour {
                 }
                 break;
             case "oca":
+                if (Input.GetKeyDown(KeyCode.Escape) == true)
+                {
+                    SceneManager.LoadScene("menu");
+                }
+                if (Input.GetKeyDown(KeyCode.H) == true)
+                {
+                    SceneManager.LoadScene("opciones");
+                }
                 break;
             case "opciones":
                 if (Input.GetKeyDown(KeyCode.M) == true)

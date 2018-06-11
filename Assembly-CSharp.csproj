@@ -65,6 +65,7 @@
     <Compile Include="Assets\juegoOca\Scripts\DiceTotalDisplay.cs" />
     <Compile Include="Assets\juegoOca\Scripts\levelManager.cs" />
     <Compile Include="Assets\juegoOca\Scripts\luces.cs" />
+    <Compile Include="Assets\juegoOca\Scripts\NJugadores.cs" />
     <Compile Include="Assets\juegoOca\Scripts\noDestruir.cs" />
     <Compile Include="Assets\juegoOca\Scripts\PlayerStone.cs" />
     <Compile Include="Assets\juegoOca\Scripts\salir.cs" />

@@ -24,10 +24,7 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)==true)
-        {
-            SceneManager.LoadScene("menu");
-        }
+      
         
     }
 }

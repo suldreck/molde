@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb2d3567dca4d6489f41779bd0c190b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StonePrefab: {fileID: 1138692715815464, guid: 52766ac96b3b963468e9327b47af8e9e,
+  StonePrefab: {fileID: 1977241903675398, guid: f83fb35762445b74dafaac9b309122ee,
     type: 2}
   StartingTile: {fileID: 1886698388}
 --- !u!114 &517801821 stripped
