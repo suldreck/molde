@@ -16,12 +16,25 @@ public class noDestruir : MonoBehaviour {
             }
     }
     // Use this for initialization
-    void Start () {
-    
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        jugadores = GameObject.FindObjectsOfType<PlayerStone>();
+        //hand = GameObject.Find("Player3-StoneStorage ");
+        
+        //if (hand.GetType() == typeof(PlayerStone))
+        //    Debug.Log("Es del mismo tipo que playerstone");
+        theStateManager = GameObject.FindObjectOfType<StateManager>();
+        for (int i = 0; i < jugadores.Length; i++)
+        {
+            Debug.Log("  " + i + "" + jugadores[i].name);
+        }
+        
+    }
+    StateManager theStateManager;
+    PlayerStone [] jugadores;
+    public GameObject hand;
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

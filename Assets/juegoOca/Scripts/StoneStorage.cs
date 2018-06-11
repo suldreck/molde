@@ -9,16 +9,12 @@ public class StoneStorage : MonoBehaviour {
 		
         // Create one stone for each placeholder spot
 
-        for (int i = 0; i < this.transform.childCount; i++)
-        {
             // Instantiate a new copy of the stone prefab
             GameObject theStone = Instantiate( StonePrefab );
             theStone.GetComponent<PlayerStone>().StartingTile = this.StartingTile;
             theStone.GetComponent<PlayerStone>().MyStoneStorage = this;
-
-            AddStoneToStorage(theStone , this.transform.GetChild(i) );
-        }
-
+            AddStoneToStorage(theStone , this.transform.GetChild(0) );
+   
 	}
 
     public GameObject StonePrefab;

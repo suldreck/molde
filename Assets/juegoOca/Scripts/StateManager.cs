@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
         
     }
 
-    public int NumberOfPlayers = 3;
+    public int NumberOfPlayers = 4;
     public int CurrentPlayerId = 0;
     
     public int DiceTotal;
@@ -38,7 +38,7 @@ public class StateManager : MonoBehaviour
     }
 
     public void RollAgain()
-    {
+    {   
         Debug.Log("RollAgain");
         IsDoneRolling = false;
         IsDoneClicking = false;

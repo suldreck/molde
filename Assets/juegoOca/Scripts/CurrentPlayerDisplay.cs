@@ -15,7 +15,7 @@ public class CurrentPlayerDisplay : MonoBehaviour {
     Text myText;
 
     // TODO: Consider a humanizer library
-    string[] numberWords = { "White", "Red", "Three", "Four" };
+    string[] numberWords = { "White", "Red", "green", "blue" };
 	
 	// Update is called once per frame
 	void Update () {
