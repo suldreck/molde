@@ -12,8 +12,9 @@ public class DiceRoller : MonoBehaviour
     {
         DiceValues = new int[1];
         theStateManager = GameObject.FindObjectOfType<StateManager>();
+        stone= GameObject.FindObjectOfType<PlayerStone>();
     }
-
+    PlayerStone stone;
     public StateManager theStateManager;
 
     public int[] DiceValues;
@@ -27,11 +28,21 @@ public class DiceRoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
+		if(theStateManager.finalistas==theStateManager.NumberOfPlayers)
+        {
+            SceneManager.LoadScene("menu");
+            Destroy(gameObject);
+        }
     }
 
     public void RollTheDice()
     {
+        if (theStateManager.isFinish[theStateManager.CurrentPlayerId] == true)
+        {
+            theStateManager.NewTurn();
+            return;
+        }
+
 
         if (theStateManager.IsDoneRolling == true)
         {
@@ -48,7 +59,8 @@ public class DiceRoller : MonoBehaviour
         // We are going to use random number generation instead.
        // Debug.Log("longitud penal"+ theStateManager.penal.Length);
         theStateManager.DiceTotal = Random.Range(1, 6);
-        theStateManager.DiceTotal = 65;
+        theStateManager.DiceTotal = 2;
+        
         if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
         {
             

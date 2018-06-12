@@ -21,18 +21,18 @@ public class CameraDolly : MonoBehaviour {
    float [] distancia;
 	// Update is called once per frame
 	void Update () {
-       
+
         float theAngle = this.transform.rotation.eulerAngles.y;
-        if(theAngle > 180)
+        if (theAngle > 180)
             theAngle -= 360f;
 
-        theAngle = Mathf.SmoothDamp( 
-            theAngle, 
-            (theStateManager.CurrentPlayerId==0 ? PivotAngle : -PivotAngle), 
-            ref pivotVelocity, 
-            0.25f );
+        theAngle = Mathf.SmoothDamp(
+            theAngle,
+            (theStateManager.CurrentPlayerId == 0 ? PivotAngle : -PivotAngle),
+            ref pivotVelocity,
+            0.25f);
 
-            this.transform.position = baseCamara+new Vector3(stone[theStateManager.CurrentPlayerId].transform.position.x, 0, 0);
-        this.transform.rotation = Quaternion.Euler( new Vector3(0, theAngle, 0) );
+        this.transform.position = baseCamara+new Vector3(stone[theStateManager.CurrentPlayerId].transform.position.x, 0, 0);
+       // this.transform.rotation = Quaternion.Euler( new Vector3(0, theAngle, 0) );
 	}
 }
