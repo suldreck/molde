@@ -175,6 +175,12 @@ public class PlayerStone : MonoBehaviour
             case 1:
                 desplazamiento = new Vector3(-0.5f, altura, 0.5f);
                 break;
+            case 2:
+                desplazamiento = new Vector3(0.5f, altura, -0.5f);
+                break;
+            case 3:
+                desplazamiento = new Vector3(-0.5f, altura, -0.5f);
+                break;
 
             default:
 

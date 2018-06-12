@@ -13,7 +13,8 @@ public class NJugadores : MonoBehaviour {
         caja = GameObject.FindObjectOfType<Text>();
         aux = "";
         caja.text = "1";
-        theStateManager = GameObject.FindObjectOfType<StateManager>();
+        
+        
     }
     StateManager theStateManager;
     Text caja;
@@ -45,7 +46,7 @@ public class NJugadores : MonoBehaviour {
         aux = jugadores.ToString();
         caja.text =""+ jugadores;
         //caja.text = "nada";
-        theStateManager.NumberOfPlayers = jugadores;
+        
     }
     
 }

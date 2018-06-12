@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StateManager : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class StateManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       
+        recojo = GameObject.FindObjectOfType<TomaText>();
+        NumberOfPlayers = recojo.numero;
+        penal = new int[NumberOfPlayers];
     }
-   
+    TomaText recojo;
     public int NumberOfPlayers =3;
     public int CurrentPlayerId = 0;
     
@@ -20,7 +23,7 @@ public class StateManager : MonoBehaviour
     public bool IsDoneRolling = false;
     public bool IsDoneClicking = false;
     public bool IsDoneAnimating = false;
-    public int [] penal= {0,0 };
+    public int [] penal;
     public bool contestacion;
     public bool test = false;
     public GameObject NoLegalMovesPopup;

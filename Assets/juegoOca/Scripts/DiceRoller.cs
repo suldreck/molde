@@ -46,7 +46,7 @@ public class DiceRoller : MonoBehaviour
         // You COULD roll actual physics enabled dice.
 
         // We are going to use random number generation instead.
-
+        Debug.Log("longitud penal"+ theStateManager.penal.Length);
         theStateManager.DiceTotal = Random.Range(1, 6);
         theStateManager.DiceTotal = 2;
         if (theStateManager.penal[theStateManager.CurrentPlayerId] > 0)
