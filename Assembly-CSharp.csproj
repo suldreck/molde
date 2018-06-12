@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\DiceRoller.cs" />
     <Compile Include="Assets\Scripts\DiceTotalDisplay.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\MenuScreenController.cs" />
     <Compile Include="Assets\Scripts\PlayerStone.cs" />

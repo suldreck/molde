@@ -804,6 +804,7 @@ MonoBehaviour:
   IsDoneRolling: 0
   IsDoneClicking: 0
   IsDoneAnimating: 0
+  isCorrect: 0
   penal: 0000000000000000
   NoLegalMovesPopup: {fileID: 309473613}
 --- !u!4 &603601581
@@ -1362,6 +1363,11 @@ Prefab:
       propertyPath: NextTiles.Array.data[0]
       value: 
       objectReference: {fileID: 1225279868}
+    - target: {fileID: 114100598389807136, guid: 96b34ab20de577640a943d306ea7559e,
+        type: 2}
+      propertyPath: isCarcel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96b34ab20de577640a943d306ea7559e, type: 2}
   m_IsPrefabParent: 0
