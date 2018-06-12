@@ -8,15 +8,16 @@ public class StoneStorage : MonoBehaviour {
 	void Start () {
 
         // Create one stone for each placeholder spot
-        theStateManager = GameObject.FindObjectOfType<StateManager>();
+        auxiliar = GameObject.FindObjectOfType<TomaText>();
+
         // Instantiate a new copy of the stone prefab
-       // GameObject.Find("Player2-stone").SetActive(true);
-      
+        // GameObject.Find("Player2-stone").SetActive(true);
+
         //if ((PlayerStone)StonePrefab.PlayerId + 1 <= theStateManager.NumberOfPlayers)
         //{
-            GameObject theStone = Instantiate(StonePrefab);
+        GameObject theStone = Instantiate(StonePrefab);
         numeroJugador = int.Parse(this.tag);
-            if (int.Parse(this.tag)<=theStateManager.NumberOfPlayers)
+            if (int.Parse(this.tag)<=auxiliar.numero)
             {
                 theStone.GetComponent<PlayerStone>().StartingTile = this.StartingTile;
                 theStone.GetComponent<PlayerStone>().MyStoneStorage = this;
@@ -48,7 +49,7 @@ public class StoneStorage : MonoBehaviour {
 
     }
     int numeroJugador;
-    StateManager theStateManager;
+    TomaText auxiliar;
     string valorJugador;
     public GameObject StonePrefab;
     public PlayerStone SPrefab;

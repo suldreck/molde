@@ -14,7 +14,7 @@ public class StateManager : MonoBehaviour
         penal = new int[NumberOfPlayers];
     }
     TomaText recojo;
-    public int NumberOfPlayers =3;
+    public int NumberOfPlayers ;
     public int CurrentPlayerId = 0;
     
     public int DiceTotal;
