@@ -279,18 +279,24 @@ public class PlayerStone : MonoBehaviour
             }
             else
             {
-                if (finalTile.NextTiles == null || finalTile.NextTiles.Length == 0)
+                if (finalTile.NextTiles[0] == null )
                 {
                     // We are overshooting the victory -- so just return some nulls in the array
                     // Just break and we'll return the array, which is going to have nulls
                     // at the end.
+
+                    for (int j = i; j < spacesToMove; j++)
+                    {
+                        finalTile = finalTile.NextTiles[1];
+                        listOfTiles[j] = finalTile;
+                    }
                     break;
                 }
-                else if (finalTile.NextTiles.Length > 1)
-                {
-                    // Branch based on player id
-                    finalTile = finalTile.NextTiles[ PlayerId ];
-                }
+                //else if (finalTile.NextTiles.Length > 1)
+                //{
+                //    //// Branch based on player id
+                //    //finalTile = finalTile.NextTiles[PlayerId];
+                //}
                 else
                 {
                     finalTile = finalTile.NextTiles[0];

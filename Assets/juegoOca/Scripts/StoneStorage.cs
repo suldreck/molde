@@ -27,9 +27,9 @@ public class StoneStorage : MonoBehaviour {
         {
             switch (numeroJugador)
             {
-                //case 2:
-                //    var player2 = GameObject.Find("Player2-Stone");
-                //    break;
+                case 2:
+                    GameObject.Find("Player2-Stone(Clone)").SetActive(false);
+                    break;
                 case 3:
                     //GameObject.Find("Player2-stone").SetActive(true);
                     GameObject.Find("Player3-Stone(Clone)").SetActive(false);

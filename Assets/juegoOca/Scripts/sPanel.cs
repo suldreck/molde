@@ -13,7 +13,8 @@ public class sPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.anyKey)
-        {
+        {if(Input.anyKey)
+            Debug.Log(" cualquier tecla  ");
             menus();
         }
 
@@ -22,7 +23,7 @@ public class sPanel : MonoBehaviour {
 	}
     void menus()
     {
-       // Debug.Log("menu "+ SceneManager.GetActiveScene().name);
+       Debug.Log("menu  "+ SceneManager.GetActiveScene().name);
         switch (SceneManager.GetActiveScene().name)
 
         {
@@ -36,7 +37,7 @@ public class sPanel : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.J) == true)
                 {
                     Debug.Log("entro  con la j ");
-                    SceneManager.LoadScene("oca");
+                    SceneManager.LoadScene("jugadores");
                 }
 
                 if (Input.GetKeyDown(KeyCode.O) == true)
